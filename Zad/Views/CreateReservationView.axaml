@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Biblioteka.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="550"
+             d:DesignHeight="450"
+             x:Class="Biblioteka.Views.CreateReservationView"
+             x:DataType="vm:CreateReservationViewModel">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+				<GradientStop Color="#fc466b" Offset="0.0"/>
+				<GradientStop Color="#ff7b54" Offset="1.0"/>
+			</RadialGradientBrush>
+		</Grid.Background>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Text="Nowa Rezerwacja"/>
+		<Label Grid.Row="1" Grid.Column="0" Content="Tytuł Książki:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Title}"/>
+		<Label Grid.Row="2" Grid.Column="0" Content="Autor Książki:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Author}"/>
+		<Label Grid.Row="3" Grid.Column="0" Content="Imię:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch" Text="{Binding BorrowerName}"/>
+		<Label Grid.Row="4" Grid.Column="0" Content="Nazwisko:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch" Text="{Binding BorrowerSurname}"/>
+		<Label Grid.Row="5" Grid.Column="0" Content="Telefon:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" HorizontalAlignment="Stretch" Text="{Binding Phone}"/>
+		<Label Grid.Row="6" Grid.Column="0" Content="Od (yyyy-MM-dd):" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="6" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" Text="{Binding From, Mode=TwoWay}"/>
+		<TextBlock Grid.Row="6" Grid.Column="2" Margin="10" VerticalAlignment="Center" Foreground="Red" Text="{Binding FromErrorMessage}"/>
+		<Label Grid.Row="7" Grid.Column="0" Content="Do (yyyy-MM-dd):" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+		<TextBox Grid.Row="7" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" Text="{Binding To, Mode=TwoWay}"/>
+		<TextBlock Grid.Row="7" Grid.Column="2" Margin="10" VerticalAlignment="Center" Foreground="Red" Text="{Binding ToErrorMessage}"/>
+		<Button Content="Cofnij" Grid.Row="8" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15" Command="{Binding BackCommand}"/>
+		<Button Content="Gotowe" Grid.Row="8" Grid.Column="2" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15" Command="{Binding CreateReservationCommand}"/>
+	</Grid>
+</UserControl>

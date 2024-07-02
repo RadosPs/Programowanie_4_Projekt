@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Biblioteka.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Biblioteka.Views.MenuView"
+             x:DataType="vm:MenuViewModel">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+				<GradientStop Color="#fc466b" Offset="0.0"/>
+				<GradientStop Color="#ff7b54" Offset="1.0"/>
+			</RadialGradientBrush>
+		</Grid.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<TextBlock Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="80" Foreground="#333333">BIBLIOTEKA</TextBlock>
+		<Button Content="Lista książek" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="30 0 30 0"
+				HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#333333"
+				Background="#2986cc" HorizontalContentAlignment="Center" FontSize="22"
+				Command="{Binding BooksListCommand}">
+		</Button>
+		<Button Content="Rezerwacje" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Margin="30 0 30 0"
+				HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#333333"
+				Background="#2986cc" HorizontalContentAlignment="Center" FontSize="22"
+				Command="{Binding ReservationsListCommand}">
+		</Button>
+		<Button Content="Pokaż Kategorie" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="30 0 30 0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#333333"
+				Background="#2986cc" HorizontalContentAlignment="Center" FontSize="22"
+				Command="{Binding ShowCategoriesCommand}">
+		</Button>
+	</Grid>
+</UserControl>

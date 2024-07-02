@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Biblioteka.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Biblioteka.Views.ReservationView"
+             x:DataType="vm:ReservationViewModel">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+				<GradientStop Color="#fc466b" Offset="0.0"/>
+				<GradientStop Color="#ff7b54" Offset="1.0"/>
+			</RadialGradientBrush>
+		</Grid.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10" FontSize="18" Foreground="Black">Rezerwacje</TextBlock>
+
+		<ListBox ItemsSource="{Binding Reservations}" SelectedItem="{Binding SelectedReservation}" Height="400"
+         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10 10 10 10" Foreground="Black">
+			<ListBox.Background>
+				<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+					<GradientStop Color="#fc466b" Offset="0.0"/>
+					<GradientStop Color="#ff7b54" Offset="1.0"/>
+				</RadialGradientBrush>
+			</ListBox.Background>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock>
+							<Run Text="Tytuł: "/>
+							<Run Text="{Binding Title}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Autor: "/>
+							<Run Text="{Binding Author}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Imię Wypożyczającego: "/>
+							<Run Text="{Binding BorrowerName}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Nazwisko Wypożyczającego: "/>
+							<Run Text="{Binding BorrowerSurname}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Numer telefonu Wypożyczającego: "/>
+							<Run Text="{Binding Phone}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Od: "/>
+							<Run Text="{Binding From}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Do: "/>
+							<Run Text="{Binding To}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Data Utworzenia: "/>
+							<Run Text="{Binding CreatedDate}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Ostatnia Aktualizacja: "/>
+							<Run Text="{Binding LastUpdateDate}"/>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Content="Cofnij" Grid.Row="3" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding BackCommand}">
+		</Button>
+		<Button Content="Dodaj Rezerwację" Grid.Row="3" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding CreateReservationCommand}">
+		</Button>
+		<Button Content="Usuń Rezerwację" Grid.Row="3" Grid.Column="2" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding RemoveReservationCommand}">
+		</Button>
+		<Button Content="Edytuj Rezerwację" Grid.Row="3" Grid.Column="3" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding EditReservationCommand}">
+		</Button>
+	</Grid>
+</UserControl>

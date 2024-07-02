@@ -1,0 +1,62 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Biblioteka.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Biblioteka.Views.CategoriesView"
+             x:DataType="vm:CategoriesViewModel">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+				<GradientStop Color="#fc466b" Offset="0.0"/>
+				
+				<GradientStop Color="#ff7b54" Offset="1.0"/>
+				
+			</RadialGradientBrush>
+		</Grid.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="10" FontSize="18" Foreground="Black">Tabela kategorii</TextBlock>
+
+		<ListBox ItemsSource="{Binding Categories}" Height="400"
+         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10 10 10 10" Foreground="Black">
+			<ListBox.Background>
+				<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+					<GradientStop Color="#fc466b" Offset="0.0"/>
+					<GradientStop Color="#ff7b54" Offset="1.0"/>
+				</RadialGradientBrush>
+			</ListBox.Background>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock>
+							<Run Text="Kategoria: "/>
+							<Run Text="{Binding Category}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run Text="Liczba książek: "/>
+							<Run Text="{Binding Count}"/>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Content="Cofnij" Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding BackCommand}">
+		</Button>
+	</Grid>
+</UserControl>

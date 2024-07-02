@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Biblioteka.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Biblioteka.Views.CreateBookView"
+             x:DataType="vm:CreateBookViewModel">
+
+	<Grid>
+		<Grid.Background>
+			<RadialGradientBrush Center="0.7919,0.5255" GradientOrigin="0.7919,0.5255" Radius="0.5">
+				<GradientStop Color="#fc466b" Offset="0.0"/>
+				<GradientStop Color="#ff7b54" Offset="1.0"/>
+			</RadialGradientBrush>
+		</Grid.Background>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="4*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book Name:" Margin="10"/>
+		<TextBox Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding BookName}"/>
+
+		<Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book Category:" Margin="10"/>
+		<TextBox Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding BookCategory}"/>
+
+		<Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book Author:" Margin="10"/>
+		<TextBox Grid.Row="3" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding BookAuthor}"/>
+
+		<Button Content="Cofnij" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Center" Foreground="White"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding BackCommand}"/>
+
+		<Button Content="Dodaj" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Center" Foreground="White"
+                Background="#2986cc" HorizontalContentAlignment="Center" FontSize="15"
+                Command="{Binding CreateBookCommand}"/>
+	</Grid>
+</UserControl>
